@@ -1,7 +1,17 @@
 ﻿@model IEnumerable<Trip_Adviser.PLACE>
+
 @{
+    /**/
+
+    ViewBag.Title = "SearchPlace";
     Layout = null;
 }
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,25 +70,32 @@
         </h1>
 
         <div class="row py-2">
-
+            
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <!-- Blog Post -->
-                @foreach (var item in Model)
+                @if (Model.Count() == 0)
                 {
-                    <div class="card mb-4">
-                        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                        <div class="card-body">
-                            <h2 class="card-title">@Html.DisplayFor(modelItem => item.PlaceName)</h2>
-                            <p class="card-text">@Html.DisplayFor(modelItem => item.PlaceDesc)</p>
-                            <a onclick="location.href='@Url.Action("Index", "Places", new { id = item.PlaceId })'" class="btn text-light btn-primary">Read More</a>
+                    <h3>No match!</h3>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                            <div class="card-body">
+                                <h2 class="card-title">@Html.DisplayFor(modelItem => item.PlaceName)</h2>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.PlaceDesc)</p>
+                                <a onclick="location.href='@Url.Action("SearchPlace", "Places", new { id = item.PlaceId })'" class="btn text-light btn-primary">Read More</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                Posted on January 1, 2017 by
+                                <a href="#">Trip Adviser</a>
+                            </div>
                         </div>
-                        <div class="card-footer text-muted">
-                            Posted on January 1, 2017 by
-                            <a href="#">Trip Adviser</a>
-                        </div>
-                    </div>
+                    }
                 }
 
                 <!-- Pagination -->
@@ -94,8 +111,8 @@
             </div>
 
             <!-- Sidebar Widgets Column -->
-            <div class="col-md-4">
 
+            <div class="col-md-4">
                 <!-- Search Widget -->
                 <div class="card mb-4">
                     <h5 class="card-header">Search</h5>
@@ -103,9 +120,9 @@
                         <div class="input-group">
                             @using (Html.BeginForm("SearchPlace", "Places", FormMethod.Get))
                             {
-                                @Html.TextBox("searching") <input type="submit" value="Search Place" />
+                                @Html.TextBox("searching") <input type="submit" value="Search Place">
                             }
-                            
+
                         </div>
                     </div>
                 </div>

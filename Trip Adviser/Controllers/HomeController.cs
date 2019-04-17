@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Trip_Adviser.Controllers
 {
-    
+
     public class HomeController : Controller
     {
 
@@ -34,5 +34,6 @@ namespace Trip_Adviser.Controllers
 
             return View();
         }
+        
     }
 }

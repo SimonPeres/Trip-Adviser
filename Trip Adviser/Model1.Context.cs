@@ -33,7 +33,6 @@ namespace Trip_Adviser
         public virtual DbSet<RESTAURANT> RESTAURANTs { get; set; }
         public virtual DbSet<RESTAURANT_OFFER> RESTAURANT_OFFER { get; set; }
         public virtual DbSet<REVIEW_RATING> REVIEW_RATING { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<WEATHER> WEATHERs { get; set; }
     }
 }

@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{228658A4-2EC8-41C3-A22E-E902CA760A56}</ProjectGuid>
+    <ProjectGuid>{1667DDEB-312E-4211-8A25-2A00AC62D5EA}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -136,7 +136,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HOTELsController.cs" />
-    <Compile Include="Controllers\PLACEs1Controller.cs" />
     <Compile Include="Controllers\PLACEsController.cs" />
     <Compile Include="Controllers\RESTAURANTsController.cs" />
     <Compile Include="Controllers\WEATHERsController.cs" />
@@ -183,9 +182,6 @@
     <Compile Include="REVIEW_RATING.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="WEATHER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -214,8 +210,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -270,31 +266,27 @@
     <Content Include="Views\PLACEs\Details.cshtml" />
     <Content Include="Views\PLACEs\Edit.cshtml" />
     <Content Include="Views\PLACEs\Index.cshtml" />
-    <Content Include="Views\RESTAURANTs\Create.cshtml" />
-    <Content Include="Views\RESTAURANTs\Delete.cshtml" />
-    <Content Include="Views\RESTAURANTs\Details.cshtml" />
-    <Content Include="Views\RESTAURANTs\Edit.cshtml" />
-    <Content Include="Views\RESTAURANTs\Index.cshtml" />
     <Content Include="Views\HOTELs\Create.cshtml" />
     <Content Include="Views\HOTELs\Delete.cshtml" />
     <Content Include="Views\HOTELs\Details.cshtml" />
     <Content Include="Views\HOTELs\Edit.cshtml" />
     <Content Include="Views\HOTELs\Index.cshtml" />
+    <Content Include="Views\RESTAURANTs\Create.cshtml" />
+    <Content Include="Views\RESTAURANTs\Delete.cshtml" />
+    <Content Include="Views\RESTAURANTs\Details.cshtml" />
+    <Content Include="Views\RESTAURANTs\Edit.cshtml" />
+    <Content Include="Views\RESTAURANTs\Index.cshtml" />
     <Content Include="Views\WEATHERs\Create.cshtml" />
     <Content Include="Views\WEATHERs\Delete.cshtml" />
     <Content Include="Views\WEATHERs\Details.cshtml" />
     <Content Include="Views\WEATHERs\Edit.cshtml" />
     <Content Include="Views\WEATHERs\Index.cshtml" />
-    <Content Include="Views\PLACEs1\Create.cshtml" />
-    <Content Include="Views\PLACEs1\Delete.cshtml" />
-    <Content Include="Views\PLACEs1\Details.cshtml" />
-    <Content Include="Views\PLACEs1\Edit.cshtml" />
-    <Content Include="Views\PLACEs1\Index.cshtml" />
+    <Content Include="Views\Search.cshtml" />
+    <Content Include="Views\PLACEs\SearchPlace.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Restaurant\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -328,9 +320,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62678</DevelopmentServerPort>
+          <DevelopmentServerPort>56887</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62678/</IISUrl>
+          <IISUrl>http://localhost:56887/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

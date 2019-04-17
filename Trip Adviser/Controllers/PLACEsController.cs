@@ -17,7 +17,18 @@ namespace Trip_Adviser.Controllers
         // GET: PLACEs
         public ActionResult Index()
         {
+            //var place = from p in db.PLACEs
+            //            select p;
+           // if (!String.IsNullOrEmpty(searching)) {
+          //      place = place.Where(p => p.PlaceName.Contains(searching));
+        //    }
+            //return View(place.ToList());
+
             return View();
+        }
+        public ActionResult SearchPlace(string searching)
+        {
+            return View(db.PLACEs.Where(x=>x.PlaceName.Contains(searching)||searching==null));
         }
 
         // GET: PLACEs/Details/5

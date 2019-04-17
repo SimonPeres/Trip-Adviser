@@ -103,16 +103,6 @@
           <Property Name="PlaceId" Type="int" Nullable="false" />
           <Property Name="HotelId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="WEATHER">
           <Key>
             <PropertyRef Name="WeatherId" />
@@ -337,7 +327,6 @@
           <EntitySet Name="RESTAURANT_OFFER" EntityType="Self.RESTAURANT_OFFER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REVIEW_RATING" EntityType="Self.REVIEW_RATING" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SITUATION" EntityType="Self.SITUATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WEATHER" EntityType="Self.WEATHER" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__FOOD__ResId__267ABA7A" Association="Self.FK__FOOD__ResId__267ABA7A">
             <End Role="RESTAURANT" EntitySet="RESTAURANT" />
@@ -517,16 +506,6 @@
           <NavigationProperty Name="HOTEL" Relationship="Self.FK__REVIEW_RA__Hotel__33D4B598" FromRole="REVIEW_RATING" ToRole="HOTEL" />
           <NavigationProperty Name="PLACE" Relationship="Self.FK__REVIEW_RA__Place__32E0915F" FromRole="REVIEW_RATING" ToRole="PLACE" />
           <NavigationProperty Name="RESTAURANT" Relationship="Self.FK__REVIEW_RA__ResId__34C8D9D1" FromRole="REVIEW_RATING" ToRole="RESTAURANT" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="WEATHER">
           <Key>
@@ -711,7 +690,6 @@
           <EntitySet Name="RESTAURANTs" EntityType="Self.RESTAURANT" />
           <EntitySet Name="RESTAURANT_OFFER" EntityType="Self.RESTAURANT_OFFER" />
           <EntitySet Name="REVIEW_RATING" EntityType="Self.REVIEW_RATING" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="WEATHERs" EntityType="Self.WEATHER" />
           <AssociationSet Name="FK__FOOD__ResId__267ABA7A" Association="Self.FK__FOOD__ResId__267ABA7A">
             <End Role="RESTAURANT" EntitySet="RESTAURANTs" />
@@ -863,17 +841,6 @@
                 <ScalarProperty Name="FoodId" ColumnName="FoodId" />
                 <ScalarProperty Name="Review" ColumnName="Review" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="tripAdviserModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

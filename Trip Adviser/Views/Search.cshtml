@@ -65,7 +65,7 @@
             <div class="col-md-8">
 
                 <!-- Blog Post -->
-                @foreach (var item in Model)
+                @foreach (var searching in Model)
                 {
                     <div class="card mb-4">
                         <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
@@ -101,11 +101,10 @@
                     <h5 class="card-header">Search</h5>
                     <div class="card-body">
                         <div class="input-group">
-                            @using (Html.BeginForm("SearchPlace", "Places", FormMethod.Get))
-                            {
-                                @Html.TextBox("searching") <input type="submit" value="Search Place" />
-                            }
-                            
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button">Go!</button>
+                            </span>
                         </div>
                     </div>
                 </div>
