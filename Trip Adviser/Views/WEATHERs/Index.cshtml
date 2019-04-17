@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Trip_Adviser.WEATHER>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Modern Business - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/content/css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-light">Trip Adviser</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item p-2">
+                        <a>@Html.ActionLink("Home", "Index", "Home")</a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a>@Html.ActionLink("Places", "Places", "Home")</a>>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a>@Html.ActionLink("Contact", "Contact", "Home")</a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a>@Html.ActionLink("About", "About", "Home")</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">
+            Weather report
+        </h1>
+
+        <div class="row">
+            <div class="col-6">
+                <div>
+                    <h3>Best time to visit</h3>
+                    <p>testing</p>
+                </div>
+                <div>
+                    <h3>Average Weather</h3>
+                    <p>25</p>
+                </div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="border"><h4>Month</h4></div>
+                <div class="border">January</div>
+                <div class="border">February</div>
+                <div class="border">March</div>
+                <div class="border">April</div>
+                <div class="border">May</div>
+                <div class="border">June</div>
+                <div class="border">July</div>
+                <div class="border">August</div>
+                <div class="border">September</div>
+                <div class="border">October</div>
+                <div class="border">November</div>
+                <div class="border">December</div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="border"><h4>Weather</h4></div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+                <div class="border">25</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="74db066bfd414475b3e893d6c60395e1" Name="Diagram1">
+        <EntityTypeShape EntityType="tripAdviserModel.FOOD" Width="1.5" PointX="7.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.HOTEL" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.HOTEL_OFFER" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.PICTURE" Width="1.5" PointX="9.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.PLACE" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.RESTAURANT" Width="1.5" PointX="5.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.RESTAURANT_OFFER" Width="1.5" PointX="7.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.REVIEW_RATING" Width="1.5" PointX="12.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="tripAdviserModel.WEATHER" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <AssociationConnector Association="tripAdviserModel.FK__FOOD__ResId__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__PICTURE__FoodId__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__REVIEW_RA__FoodI__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__HOTEL_OFF__Hotel__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__PICTURE__HotelId__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__REVIEW_RA__Hotel__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__PICTURE__PlaceId__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__PICTURE__ResId__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__REVIEW_RA__Place__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__WEATHER__PlacePl__0519C6AF" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__RESTAURAN__ResId__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.FK__REVIEW_RA__ResId__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.LOCATION" ManuallyRouted="false" />
+        <AssociationConnector Association="tripAdviserModel.SITUATION" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

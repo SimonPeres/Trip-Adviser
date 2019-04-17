@@ -1,0 +1,42 @@
+﻿@model Trip_Adviser.RESTAURANT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RESTAURANT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ResName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

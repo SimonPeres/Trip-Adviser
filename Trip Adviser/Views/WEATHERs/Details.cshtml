@@ -1,0 +1,138 @@
+﻿@model Trip_Adviser.WEATHER
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WEATHER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Jan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.May)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.May)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.June)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.June)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.July)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.July)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aug)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aug)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nov)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nov)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dcm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dcm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeatherDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeatherDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeatherAvg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeatherAvg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLACE.PlaceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PLACE.PlaceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WeatherId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

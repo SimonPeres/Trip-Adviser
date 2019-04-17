@@ -1,0 +1,66 @@
+﻿@model Trip_Adviser.PLACE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PLACE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceDistance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceDistance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BestTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BestTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdealStay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdealStay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

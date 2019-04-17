@@ -1,0 +1,941 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="tripAdviserModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResId" Type="int" Nullable="false" />
+          <Property Name="FoodName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FoodDesc" Type="varchar" MaxLength="500" />
+          <Property Name="FoodPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="HOTEL">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HotelDesc" Type="varchar" MaxLength="500" />
+          <Property Name="HotelLocation" Type="varchar" MaxLength="100" />
+          <Property Name="IdealPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="HOTEL_OFFER">
+          <Key>
+            <PropertyRef Name="HotelOfferId" />
+          </Key>
+          <Property Name="HotelOfferId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelId" Type="int" Nullable="false" />
+          <Property Name="HotelOfferTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HotelOfferDesc" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="PlaceId" />
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="ResId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PICTURE">
+          <Key>
+            <PropertyRef Name="PicId" />
+          </Key>
+          <Property Name="PicId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceId" Type="int" />
+          <Property Name="HotelId" Type="int" />
+          <Property Name="ResId" Type="int" />
+          <Property Name="FoodId" Type="int" />
+          <Property Name="PicLocation" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PLACE">
+          <Key>
+            <PropertyRef Name="PlaceId" />
+          </Key>
+          <Property Name="PlaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PlaceDesc" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PlaceDistance" Type="int" />
+          <Property Name="PlaceLocation" Type="varchar" MaxLength="100" />
+          <Property Name="BestTime" Type="varchar" MaxLength="50" />
+          <Property Name="IdealStay" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="RESTAURANT">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResDesc" Type="varchar" MaxLength="500" />
+          <Property Name="ResLocation" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="RESTAURANT_OFFER">
+          <Key>
+            <PropertyRef Name="ResOfferId" />
+          </Key>
+          <Property Name="ResOfferId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResId" Type="int" Nullable="false" />
+          <Property Name="ResOfferTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResOfferDesc" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="REVIEW_RATING">
+          <Key>
+            <PropertyRef Name="ReviewRatingId" />
+          </Key>
+          <Property Name="ReviewRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceId" Type="int" />
+          <Property Name="HotelId" Type="int" />
+          <Property Name="ResId" Type="int" />
+          <Property Name="FoodId" Type="int" />
+          <Property Name="Review" Type="varchar" MaxLength="500" />
+          <Property Name="Rating" Type="int" />
+        </EntityType>
+        <EntityType Name="SITUATION">
+          <Key>
+            <PropertyRef Name="PlaceId" />
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="PlaceId" Type="int" Nullable="false" />
+          <Property Name="HotelId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="WEATHER">
+          <Key>
+            <PropertyRef Name="WeatherId" />
+          </Key>
+          <Property Name="WeatherId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlacePlaceId" Type="int" Nullable="false" />
+          <Property Name="Jan" Type="int" />
+          <Property Name="Feb" Type="int" />
+          <Property Name="Mar" Type="int" />
+          <Property Name="Apr" Type="int" />
+          <Property Name="May" Type="int" />
+          <Property Name="June" Type="int" />
+          <Property Name="July" Type="int" />
+          <Property Name="Aug" Type="int" />
+          <Property Name="Sep" Type="int" />
+          <Property Name="Oct" Type="int" />
+          <Property Name="Nov" Type="int" />
+          <Property Name="Dcm" Type="int" />
+          <Property Name="WeatherDesc" Type="varchar" MaxLength="300" />
+          <Property Name="WeatherAvg" Type="int" />
+        </EntityType>
+        <Association Name="FK__FOOD__ResId__267ABA7A">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOTEL_OFF__Hotel__1CF15040">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
+          <End Role="HOTEL_OFFER" Type="Self.HOTEL_OFFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="HOTEL_OFFER">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOCATION__PlaceI__173876EA">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="1" />
+          <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="LOCATION">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOCATION__ResId__182C9B23">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="1" />
+          <End Role="LOCATION" Type="Self.LOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="LOCATION">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__FoodId__2E1BDC42">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__HotelId__2C3393D0">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__PlaceId__2B3F6F97">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__ResId__2D27B809">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESTAURAN__ResId__21B6055D">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="1" />
+          <End Role="RESTAURANT_OFFER" Type="Self.RESTAURANT_OFFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="RESTAURANT_OFFER">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__FoodI__35BCFE0A">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__Hotel__33D4B598">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__Place__32E0915F">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__ResId__34C8D9D1">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SITUATION__Hotel__0EA330E9">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
+          <End Role="SITUATION" Type="Self.SITUATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="SITUATION">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SITUATION__Place__0DAF0CB0">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="1" />
+          <End Role="SITUATION" Type="Self.SITUATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="SITUATION">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WEATHER__PlacePl__0519C6AF">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="1" />
+          <End Role="WEATHER" Type="Self.WEATHER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="WEATHER">
+              <PropertyRef Name="PlacePlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="tripAdviserModelStoreContainer">
+          <EntitySet Name="FOOD" EntityType="Self.FOOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOTEL" EntityType="Self.HOTEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOTEL_OFFER" EntityType="Self.HOTEL_OFFER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOCATION" EntityType="Self.LOCATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PICTURE" EntityType="Self.PICTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLACE" EntityType="Self.PLACE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESTAURANT" EntityType="Self.RESTAURANT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESTAURANT_OFFER" EntityType="Self.RESTAURANT_OFFER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REVIEW_RATING" EntityType="Self.REVIEW_RATING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SITUATION" EntityType="Self.SITUATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WEATHER" EntityType="Self.WEATHER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FOOD__ResId__267ABA7A" Association="Self.FK__FOOD__ResId__267ABA7A">
+            <End Role="RESTAURANT" EntitySet="RESTAURANT" />
+            <End Role="FOOD" EntitySet="FOOD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOTEL_OFF__Hotel__1CF15040" Association="Self.FK__HOTEL_OFF__Hotel__1CF15040">
+            <End Role="HOTEL" EntitySet="HOTEL" />
+            <End Role="HOTEL_OFFER" EntitySet="HOTEL_OFFER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOCATION__PlaceI__173876EA" Association="Self.FK__LOCATION__PlaceI__173876EA">
+            <End Role="PLACE" EntitySet="PLACE" />
+            <End Role="LOCATION" EntitySet="LOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOCATION__ResId__182C9B23" Association="Self.FK__LOCATION__ResId__182C9B23">
+            <End Role="RESTAURANT" EntitySet="RESTAURANT" />
+            <End Role="LOCATION" EntitySet="LOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__FoodId__2E1BDC42" Association="Self.FK__PICTURE__FoodId__2E1BDC42">
+            <End Role="FOOD" EntitySet="FOOD" />
+            <End Role="PICTURE" EntitySet="PICTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__HotelId__2C3393D0" Association="Self.FK__PICTURE__HotelId__2C3393D0">
+            <End Role="HOTEL" EntitySet="HOTEL" />
+            <End Role="PICTURE" EntitySet="PICTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__PlaceId__2B3F6F97" Association="Self.FK__PICTURE__PlaceId__2B3F6F97">
+            <End Role="PLACE" EntitySet="PLACE" />
+            <End Role="PICTURE" EntitySet="PICTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__ResId__2D27B809" Association="Self.FK__PICTURE__ResId__2D27B809">
+            <End Role="RESTAURANT" EntitySet="RESTAURANT" />
+            <End Role="PICTURE" EntitySet="PICTURE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESTAURAN__ResId__21B6055D" Association="Self.FK__RESTAURAN__ResId__21B6055D">
+            <End Role="RESTAURANT" EntitySet="RESTAURANT" />
+            <End Role="RESTAURANT_OFFER" EntitySet="RESTAURANT_OFFER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__FoodI__35BCFE0A" Association="Self.FK__REVIEW_RA__FoodI__35BCFE0A">
+            <End Role="FOOD" EntitySet="FOOD" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__Hotel__33D4B598" Association="Self.FK__REVIEW_RA__Hotel__33D4B598">
+            <End Role="HOTEL" EntitySet="HOTEL" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__Place__32E0915F" Association="Self.FK__REVIEW_RA__Place__32E0915F">
+            <End Role="PLACE" EntitySet="PLACE" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__ResId__34C8D9D1" Association="Self.FK__REVIEW_RA__ResId__34C8D9D1">
+            <End Role="RESTAURANT" EntitySet="RESTAURANT" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SITUATION__Hotel__0EA330E9" Association="Self.FK__SITUATION__Hotel__0EA330E9">
+            <End Role="HOTEL" EntitySet="HOTEL" />
+            <End Role="SITUATION" EntitySet="SITUATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SITUATION__Place__0DAF0CB0" Association="Self.FK__SITUATION__Place__0DAF0CB0">
+            <End Role="PLACE" EntitySet="PLACE" />
+            <End Role="SITUATION" EntitySet="SITUATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WEATHER__PlacePl__0519C6AF" Association="Self.FK__WEATHER__PlacePl__0519C6AF">
+            <End Role="PLACE" EntitySet="PLACE" />
+            <End Role="WEATHER" EntitySet="WEATHER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="tripAdviserModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResId" Type="Int32" Nullable="false" />
+          <Property Name="FoodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FoodDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FoodPrice" Type="Int32" />
+          <NavigationProperty Name="RESTAURANT" Relationship="Self.FK__FOOD__ResId__267ABA7A" FromRole="FOOD" ToRole="RESTAURANT" />
+          <NavigationProperty Name="PICTUREs" Relationship="Self.FK__PICTURE__FoodId__2E1BDC42" FromRole="FOOD" ToRole="PICTURE" />
+          <NavigationProperty Name="REVIEW_RATING" Relationship="Self.FK__REVIEW_RA__FoodI__35BCFE0A" FromRole="FOOD" ToRole="REVIEW_RATING" />
+        </EntityType>
+        <EntityType Name="HOTEL">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HotelDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HotelLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdealPrice" Type="Int32" />
+          <NavigationProperty Name="HOTEL_OFFER" Relationship="Self.FK__HOTEL_OFF__Hotel__1CF15040" FromRole="HOTEL" ToRole="HOTEL_OFFER" />
+          <NavigationProperty Name="PICTUREs" Relationship="Self.FK__PICTURE__HotelId__2C3393D0" FromRole="HOTEL" ToRole="PICTURE" />
+          <NavigationProperty Name="REVIEW_RATING" Relationship="Self.FK__REVIEW_RA__Hotel__33D4B598" FromRole="HOTEL" ToRole="REVIEW_RATING" />
+          <NavigationProperty Name="PLACEs" Relationship="Self.SITUATION" FromRole="HOTEL" ToRole="PLACE" />
+        </EntityType>
+        <EntityType Name="HOTEL_OFFER">
+          <Key>
+            <PropertyRef Name="HotelOfferId" />
+          </Key>
+          <Property Name="HotelOfferId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelId" Type="Int32" Nullable="false" />
+          <Property Name="HotelOfferTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HotelOfferDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HOTEL" Relationship="Self.FK__HOTEL_OFF__Hotel__1CF15040" FromRole="HOTEL_OFFER" ToRole="HOTEL" />
+        </EntityType>
+        <EntityType Name="PICTURE">
+          <Key>
+            <PropertyRef Name="PicId" />
+          </Key>
+          <Property Name="PicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceId" Type="Int32" />
+          <Property Name="HotelId" Type="Int32" />
+          <Property Name="ResId" Type="Int32" />
+          <Property Name="FoodId" Type="Int32" />
+          <Property Name="PicLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FOOD" Relationship="Self.FK__PICTURE__FoodId__2E1BDC42" FromRole="PICTURE" ToRole="FOOD" />
+          <NavigationProperty Name="HOTEL" Relationship="Self.FK__PICTURE__HotelId__2C3393D0" FromRole="PICTURE" ToRole="HOTEL" />
+          <NavigationProperty Name="PLACE" Relationship="Self.FK__PICTURE__PlaceId__2B3F6F97" FromRole="PICTURE" ToRole="PLACE" />
+          <NavigationProperty Name="RESTAURANT" Relationship="Self.FK__PICTURE__ResId__2D27B809" FromRole="PICTURE" ToRole="RESTAURANT" />
+        </EntityType>
+        <EntityType Name="PLACE">
+          <Key>
+            <PropertyRef Name="PlaceId" />
+          </Key>
+          <Property Name="PlaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlaceDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlaceDistance" Type="Int32" />
+          <Property Name="PlaceLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BestTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdealStay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PICTUREs" Relationship="Self.FK__PICTURE__PlaceId__2B3F6F97" FromRole="PLACE" ToRole="PICTURE" />
+          <NavigationProperty Name="REVIEW_RATING" Relationship="Self.FK__REVIEW_RA__Place__32E0915F" FromRole="PLACE" ToRole="REVIEW_RATING" />
+          <NavigationProperty Name="WEATHERs" Relationship="Self.FK__WEATHER__PlacePl__0519C6AF" FromRole="PLACE" ToRole="WEATHER" />
+          <NavigationProperty Name="RESTAURANTs" Relationship="Self.LOCATION" FromRole="PLACE" ToRole="RESTAURANT" />
+          <NavigationProperty Name="HOTELs" Relationship="Self.SITUATION" FromRole="PLACE" ToRole="HOTEL" />
+        </EntityType>
+        <EntityType Name="RESTAURANT">
+          <Key>
+            <PropertyRef Name="ResId" />
+          </Key>
+          <Property Name="ResId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ResDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ResLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FOODs" Relationship="Self.FK__FOOD__ResId__267ABA7A" FromRole="RESTAURANT" ToRole="FOOD" />
+          <NavigationProperty Name="PICTUREs" Relationship="Self.FK__PICTURE__ResId__2D27B809" FromRole="RESTAURANT" ToRole="PICTURE" />
+          <NavigationProperty Name="RESTAURANT_OFFER" Relationship="Self.FK__RESTAURAN__ResId__21B6055D" FromRole="RESTAURANT" ToRole="RESTAURANT_OFFER" />
+          <NavigationProperty Name="REVIEW_RATING" Relationship="Self.FK__REVIEW_RA__ResId__34C8D9D1" FromRole="RESTAURANT" ToRole="REVIEW_RATING" />
+          <NavigationProperty Name="PLACEs" Relationship="Self.LOCATION" FromRole="RESTAURANT" ToRole="PLACE" />
+        </EntityType>
+        <EntityType Name="RESTAURANT_OFFER">
+          <Key>
+            <PropertyRef Name="ResOfferId" />
+          </Key>
+          <Property Name="ResOfferId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResId" Type="Int32" Nullable="false" />
+          <Property Name="ResOfferTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ResOfferDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RESTAURANT" Relationship="Self.FK__RESTAURAN__ResId__21B6055D" FromRole="RESTAURANT_OFFER" ToRole="RESTAURANT" />
+        </EntityType>
+        <EntityType Name="REVIEW_RATING">
+          <Key>
+            <PropertyRef Name="ReviewRatingId" />
+          </Key>
+          <Property Name="ReviewRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceId" Type="Int32" />
+          <Property Name="HotelId" Type="Int32" />
+          <Property Name="ResId" Type="Int32" />
+          <Property Name="FoodId" Type="Int32" />
+          <Property Name="Review" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" />
+          <NavigationProperty Name="FOOD" Relationship="Self.FK__REVIEW_RA__FoodI__35BCFE0A" FromRole="REVIEW_RATING" ToRole="FOOD" />
+          <NavigationProperty Name="HOTEL" Relationship="Self.FK__REVIEW_RA__Hotel__33D4B598" FromRole="REVIEW_RATING" ToRole="HOTEL" />
+          <NavigationProperty Name="PLACE" Relationship="Self.FK__REVIEW_RA__Place__32E0915F" FromRole="REVIEW_RATING" ToRole="PLACE" />
+          <NavigationProperty Name="RESTAURANT" Relationship="Self.FK__REVIEW_RA__ResId__34C8D9D1" FromRole="REVIEW_RATING" ToRole="RESTAURANT" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="WEATHER">
+          <Key>
+            <PropertyRef Name="WeatherId" />
+          </Key>
+          <Property Name="WeatherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlacePlaceId" Type="Int32" Nullable="false" />
+          <Property Name="Jan" Type="Int32" />
+          <Property Name="Feb" Type="Int32" />
+          <Property Name="Mar" Type="Int32" />
+          <Property Name="Apr" Type="Int32" />
+          <Property Name="May" Type="Int32" />
+          <Property Name="June" Type="Int32" />
+          <Property Name="July" Type="Int32" />
+          <Property Name="Aug" Type="Int32" />
+          <Property Name="Sep" Type="Int32" />
+          <Property Name="Oct" Type="Int32" />
+          <Property Name="Nov" Type="Int32" />
+          <Property Name="Dcm" Type="Int32" />
+          <Property Name="WeatherDesc" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="WeatherAvg" Type="Int32" />
+          <NavigationProperty Name="PLACE" Relationship="Self.FK__WEATHER__PlacePl__0519C6AF" FromRole="WEATHER" ToRole="PLACE" />
+        </EntityType>
+        <Association Name="FK__FOOD__ResId__267ABA7A">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__FoodId__2E1BDC42">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__FoodI__35BCFE0A">
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FOOD">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOTEL_OFF__Hotel__1CF15040">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
+          <End Role="HOTEL_OFFER" Type="Self.HOTEL_OFFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="HOTEL_OFFER">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__HotelId__2C3393D0">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__Hotel__33D4B598">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__PlaceId__2B3F6F97">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PICTURE__ResId__2D27B809">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="0..1" />
+          <End Role="PICTURE" Type="Self.PICTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="PICTURE">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__Place__32E0915F">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="PlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WEATHER__PlacePl__0519C6AF">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="1" />
+          <End Role="WEATHER" Type="Self.WEATHER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="PlaceId" />
+            </Principal>
+            <Dependent Role="WEATHER">
+              <PropertyRef Name="PlacePlaceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESTAURAN__ResId__21B6055D">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="1" />
+          <End Role="RESTAURANT_OFFER" Type="Self.RESTAURANT_OFFER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="RESTAURANT_OFFER">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REVIEW_RA__ResId__34C8D9D1">
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="0..1" />
+          <End Role="REVIEW_RATING" Type="Self.REVIEW_RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESTAURANT">
+              <PropertyRef Name="ResId" />
+            </Principal>
+            <Dependent Role="REVIEW_RATING">
+              <PropertyRef Name="ResId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LOCATION">
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="*" />
+          <End Role="RESTAURANT" Type="Self.RESTAURANT" Multiplicity="*" />
+        </Association>
+        <Association Name="SITUATION">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="*" />
+          <End Role="PLACE" Type="Self.PLACE" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="tripAdviserEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FOODs" EntityType="Self.FOOD" />
+          <EntitySet Name="HOTELs" EntityType="Self.HOTEL" />
+          <EntitySet Name="HOTEL_OFFER" EntityType="Self.HOTEL_OFFER" />
+          <EntitySet Name="PICTUREs" EntityType="Self.PICTURE" />
+          <EntitySet Name="PLACEs" EntityType="Self.PLACE" />
+          <EntitySet Name="RESTAURANTs" EntityType="Self.RESTAURANT" />
+          <EntitySet Name="RESTAURANT_OFFER" EntityType="Self.RESTAURANT_OFFER" />
+          <EntitySet Name="REVIEW_RATING" EntityType="Self.REVIEW_RATING" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="WEATHERs" EntityType="Self.WEATHER" />
+          <AssociationSet Name="FK__FOOD__ResId__267ABA7A" Association="Self.FK__FOOD__ResId__267ABA7A">
+            <End Role="RESTAURANT" EntitySet="RESTAURANTs" />
+            <End Role="FOOD" EntitySet="FOODs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__FoodId__2E1BDC42" Association="Self.FK__PICTURE__FoodId__2E1BDC42">
+            <End Role="FOOD" EntitySet="FOODs" />
+            <End Role="PICTURE" EntitySet="PICTUREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__FoodI__35BCFE0A" Association="Self.FK__REVIEW_RA__FoodI__35BCFE0A">
+            <End Role="FOOD" EntitySet="FOODs" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOTEL_OFF__Hotel__1CF15040" Association="Self.FK__HOTEL_OFF__Hotel__1CF15040">
+            <End Role="HOTEL" EntitySet="HOTELs" />
+            <End Role="HOTEL_OFFER" EntitySet="HOTEL_OFFER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__HotelId__2C3393D0" Association="Self.FK__PICTURE__HotelId__2C3393D0">
+            <End Role="HOTEL" EntitySet="HOTELs" />
+            <End Role="PICTURE" EntitySet="PICTUREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__Hotel__33D4B598" Association="Self.FK__REVIEW_RA__Hotel__33D4B598">
+            <End Role="HOTEL" EntitySet="HOTELs" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__PlaceId__2B3F6F97" Association="Self.FK__PICTURE__PlaceId__2B3F6F97">
+            <End Role="PLACE" EntitySet="PLACEs" />
+            <End Role="PICTURE" EntitySet="PICTUREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PICTURE__ResId__2D27B809" Association="Self.FK__PICTURE__ResId__2D27B809">
+            <End Role="RESTAURANT" EntitySet="RESTAURANTs" />
+            <End Role="PICTURE" EntitySet="PICTUREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__Place__32E0915F" Association="Self.FK__REVIEW_RA__Place__32E0915F">
+            <End Role="PLACE" EntitySet="PLACEs" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WEATHER__PlacePl__0519C6AF" Association="Self.FK__WEATHER__PlacePl__0519C6AF">
+            <End Role="PLACE" EntitySet="PLACEs" />
+            <End Role="WEATHER" EntitySet="WEATHERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESTAURAN__ResId__21B6055D" Association="Self.FK__RESTAURAN__ResId__21B6055D">
+            <End Role="RESTAURANT" EntitySet="RESTAURANTs" />
+            <End Role="RESTAURANT_OFFER" EntitySet="RESTAURANT_OFFER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REVIEW_RA__ResId__34C8D9D1" Association="Self.FK__REVIEW_RA__ResId__34C8D9D1">
+            <End Role="RESTAURANT" EntitySet="RESTAURANTs" />
+            <End Role="REVIEW_RATING" EntitySet="REVIEW_RATING" />
+          </AssociationSet>
+          <AssociationSet Name="LOCATION" Association="Self.LOCATION">
+            <End Role="PLACE" EntitySet="PLACEs" />
+            <End Role="RESTAURANT" EntitySet="RESTAURANTs" />
+          </AssociationSet>
+          <AssociationSet Name="SITUATION" Association="Self.SITUATION">
+            <End Role="HOTEL" EntitySet="HOTELs" />
+            <End Role="PLACE" EntitySet="PLACEs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="tripAdviserModelStoreContainer" CdmEntityContainer="tripAdviserEntities">
+          <EntitySetMapping Name="FOODs">
+            <EntityTypeMapping TypeName="tripAdviserModel.FOOD">
+              <MappingFragment StoreEntitySet="FOOD">
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="FoodDesc" ColumnName="FoodDesc" />
+                <ScalarProperty Name="FoodPrice" ColumnName="FoodPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOTELs">
+            <EntityTypeMapping TypeName="tripAdviserModel.HOTEL">
+              <MappingFragment StoreEntitySet="HOTEL">
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="HotelDesc" ColumnName="HotelDesc" />
+                <ScalarProperty Name="HotelLocation" ColumnName="HotelLocation" />
+                <ScalarProperty Name="IdealPrice" ColumnName="IdealPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOTEL_OFFER">
+            <EntityTypeMapping TypeName="tripAdviserModel.HOTEL_OFFER">
+              <MappingFragment StoreEntitySet="HOTEL_OFFER">
+                <ScalarProperty Name="HotelOfferId" ColumnName="HotelOfferId" />
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="HotelOfferTitle" ColumnName="HotelOfferTitle" />
+                <ScalarProperty Name="HotelOfferDesc" ColumnName="HotelOfferDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PICTUREs">
+            <EntityTypeMapping TypeName="tripAdviserModel.PICTURE">
+              <MappingFragment StoreEntitySet="PICTURE">
+                <ScalarProperty Name="PicId" ColumnName="PicId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="PicLocation" ColumnName="PicLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLACEs">
+            <EntityTypeMapping TypeName="tripAdviserModel.PLACE">
+              <MappingFragment StoreEntitySet="PLACE">
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
+                <ScalarProperty Name="PlaceDesc" ColumnName="PlaceDesc" />
+                <ScalarProperty Name="PlaceDistance" ColumnName="PlaceDistance" />
+                <ScalarProperty Name="PlaceLocation" ColumnName="PlaceLocation" />
+                <ScalarProperty Name="BestTime" ColumnName="BestTime" />
+                <ScalarProperty Name="IdealStay" ColumnName="IdealStay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESTAURANTs">
+            <EntityTypeMapping TypeName="tripAdviserModel.RESTAURANT">
+              <MappingFragment StoreEntitySet="RESTAURANT">
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="ResName" ColumnName="ResName" />
+                <ScalarProperty Name="ResDesc" ColumnName="ResDesc" />
+                <ScalarProperty Name="ResLocation" ColumnName="ResLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESTAURANT_OFFER">
+            <EntityTypeMapping TypeName="tripAdviserModel.RESTAURANT_OFFER">
+              <MappingFragment StoreEntitySet="RESTAURANT_OFFER">
+                <ScalarProperty Name="ResOfferId" ColumnName="ResOfferId" />
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="ResOfferTitle" ColumnName="ResOfferTitle" />
+                <ScalarProperty Name="ResOfferDesc" ColumnName="ResOfferDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REVIEW_RATING">
+            <EntityTypeMapping TypeName="tripAdviserModel.REVIEW_RATING">
+              <MappingFragment StoreEntitySet="REVIEW_RATING">
+                <ScalarProperty Name="ReviewRatingId" ColumnName="ReviewRatingId" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="ResId" ColumnName="ResId" />
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="Review" ColumnName="Review" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="tripAdviserModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WEATHERs">
+            <EntityTypeMapping TypeName="tripAdviserModel.WEATHER">
+              <MappingFragment StoreEntitySet="WEATHER">
+                <ScalarProperty Name="WeatherId" ColumnName="WeatherId" />
+                <ScalarProperty Name="PlacePlaceId" ColumnName="PlacePlaceId" />
+                <ScalarProperty Name="Jan" ColumnName="Jan" />
+                <ScalarProperty Name="Feb" ColumnName="Feb" />
+                <ScalarProperty Name="Mar" ColumnName="Mar" />
+                <ScalarProperty Name="Apr" ColumnName="Apr" />
+                <ScalarProperty Name="May" ColumnName="May" />
+                <ScalarProperty Name="June" ColumnName="June" />
+                <ScalarProperty Name="July" ColumnName="July" />
+                <ScalarProperty Name="Aug" ColumnName="Aug" />
+                <ScalarProperty Name="Sep" ColumnName="Sep" />
+                <ScalarProperty Name="Oct" ColumnName="Oct" />
+                <ScalarProperty Name="Nov" ColumnName="Nov" />
+                <ScalarProperty Name="Dcm" ColumnName="Dcm" />
+                <ScalarProperty Name="WeatherDesc" ColumnName="WeatherDesc" />
+                <ScalarProperty Name="WeatherAvg" ColumnName="WeatherAvg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="LOCATION" TypeName="tripAdviserModel.LOCATION" StoreEntitySet="LOCATION">
+            <EndProperty Name="PLACE">
+              <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+            </EndProperty>
+            <EndProperty Name="RESTAURANT">
+              <ScalarProperty Name="ResId" ColumnName="ResId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SITUATION" TypeName="tripAdviserModel.SITUATION" StoreEntitySet="SITUATION">
+            <EndProperty Name="HOTEL">
+              <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+            </EndProperty>
+            <EndProperty Name="PLACE">
+              <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

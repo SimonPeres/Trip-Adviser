@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Trip_Adviser.PLACE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceDistance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BestTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdealStay)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceDistance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BestTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdealStay)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PlaceId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PlaceId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PlaceId })
+        </td>
+    </tr>
+}
+
+</table>

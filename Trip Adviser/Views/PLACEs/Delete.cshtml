@@ -1,0 +1,72 @@
+﻿@model Trip_Adviser.PLACE
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PLACE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceDistance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceDistance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaceLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaceLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BestTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BestTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdealStay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdealStay)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
